@@ -1,0 +1,74 @@
+# tic-tac-toe-in-cpp
+a terminal based game in c++.
+#include <bits/stdc++.h>
+using namespace std;
+void display_board(int a[][3])
+{
+    cout << a[0][0] << "|" << a[0][1] << "|" << a[0][2] << endl;
+    cout << "______" << endl;
+    cout << a[1][0] << "|" << a[1][1] << "|" << a[1][2] << endl;
+    cout << "_____" << endl;
+    cout << a[2][0] << "|" << a[2][1] << "|" << a[2][2] << endl;
+}
+int main()
+{
+    int a[3][3] = {0};
+    int z, s = 0;
+    cout << "PLAYER 1 vs PLAYER 2 " << endl;
+    cout << "   " << "GAME STARTS" << endl;
+    cout << "enter 1 for O" << "," << "enter 2 for X" << endl;
+    cout << "PLAYER 1 WILL MOVE FIRST" << endl;
+    cout << "1 or 2" << endl;
+    cin >> z;
+    while (((a[0][0] != 1) || (a[0][1] != 1) || (a[0][2] != 1)) && ((a[1][0] != 1) || (a[1][1] != 1)
+     || (a[1][2] != 1)) && ((a[2][0] != 1) || (a[2][1] != 1) || (a[2][2] != 1) )&& ((a[0][0] != 1) || 
+     (a[1][0] != 1) || (a[2][0] != 1)) &&( (a[0][1] != 1) || (a[1][1] != 1) || (a[2][1] != 1)) && ((a[0][2] != 1) 
+     || (a[1][2] != 1) || (a[2][2] != 1)) &&( (a[0][0] != 1) || (a[1][1] != 1) || (a[2][2] != 1)) && ((a[0][2] != 1) 
+     || (a[1][1] != 1) || (a[2][0] != 1)) && ((a[0][0] != 2) || (a[0][1] != 2) || (a[0][2] != 2)) && ((a[1][0] != 2) 
+     || (a[1][1] != 2) || (a[1][2] != 2)) && ((a[2][0] != 2) || (a[2][1] != 2) || (a[2][2] != 2)) && ((a[0][0] != 2) 
+     || (a[1][0] != 2) || (a[2][0] != 2)) && ((a[0][1] != 2) || (a[1][1] != 2) || (a[2][1] != 2)) && ((a[0][2] != 2) 
+     || (a[1][2] != 2) || (a[2][2] != 2)) &&( (a[0][0] != 2) || (a[1][1] != 2) || (a[2][2] != 2)) &&( (a[0][2] != 2) 
+     || (a[1][1] != 2) || (a[2][0] != 2)))
+    {
+        if(z==1 ||z==2)
+        {
+        int i, j;
+        char comma;
+        cout << "THE POSITION IN WHICH YOU PLACE IN FORMAT(i,j)" << endl;
+        cin >> i >> comma >> j;
+        if (i < 0 || i > 2 || j < 0 || j > 2)
+            cout << "wrong placement" << endl;
+        else
+        {
+            if (s % 2 == 0)
+            {
+                a[i][j] = z;
+            }
+            else
+            {
+                if (z == 1)
+                    a[i][j] = 2;
+                if (z == 2)
+                    a[i][j] = 1;
+            }
+        }
+        s++;
+        string display;
+        cout << "DO YOU WANT TO DISPLAY THE BOARD NOW PRESS YES OR NO" << endl;
+        cin >> display;
+        if (display == "YES" || display == "YEs" || display == "yes" || display == "YeS" ||display == "yES")
+        {
+            display_board(a);
+        }
+    }
+    else
+    {
+        cout<<"press 1 or 2 only"<<endl;
+        cin>>z;
+    }
+    }
+    cout << "GAME OVER" << endl;
+    display_board(a);
+}
+
+
